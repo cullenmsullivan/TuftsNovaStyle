@@ -1,0 +1,40 @@
+\mode<presentation>
+
+\setbeamertemplate{background}{
+  \begin{tikzpicture}
+  \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+  \fill[color=brown] (0,\the\paperheight-2cm) rectangle (\the\paperwidth,\the\paperheight);
+  \fill[color=frametitlebgcolor] (0,0) rectangle(0.6\paperwidth,1.9);
+  \fill[color=framelogobgcolor] (0.6\paperwidth,0) rectangle(\the\paperwidth,1.9);
+  \node at (0.69\paperwidth,1.0){\includegraphics[width=0.17\paperwidth]{nova_logo.png}};
+  \node at (0.89\paperwidth,1.0) {\includegraphics[width=0.19\paperwidth]{tufts_logo.png}};
+  \ifnum\thepage>1\relax%
+   \fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+   \fi
+  \end{tikzpicture}
+}
+
+% Title page
+\defbeamertemplate*{title page}{tuftsnova}[1][]
+{
+    \vskip0.3cm%
+    \begin{beamercolorbox}[wd=12cm,leftskip=0cm,sep=8pt,#1]{title page header}
+      \usebeamerfont{title}\inserttitle\par%
+    \end{beamercolorbox}%
+    \vskip1.5cm%
+    \centering
+    %\includegraphics[height=4cm]{figures/event_display.png}
+    \vskip4cm%
+    \vskip1.1cm%
+    \begin{beamercolorbox}[wd=12cm,leftskip=0cm,#1]{author}
+      \usebeamerfont{author}\insertauthor%
+    \end{beamercolorbox}
+     \vskip0.2cm%
+    \begin{beamercolorbox}[wd=12cm,leftskip=0cm,#1]{date}
+      \usebeamerfont{author}\insertdate%
+    \end{beamercolorbox}
+  \vfill
+}
+
+\mode
+<all>

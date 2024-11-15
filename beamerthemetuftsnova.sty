@@ -1,0 +1,41 @@
+\mode<presentation>
+
+% Requirement
+\RequirePackage{comment}
+\RequirePackage{geometry}
+\RequirePackage{tikz}
+
+\geometry{left=0.75cm,right=0.75cm,top=0cm,bottom=0cm}
+
+\definecolor{framelogobgcolor}{RGB}{255,243,243}
+\definecolor{frametitlebgcolor}{RGB}{65,143,222}
+
+% Use a custom counter for footnotes.
+\newcounter{customfootnote}
+% Create a new box to store footnotes
+\newbox\footnotebox
+\setbox\footnotebox=\vbox{}
+% Redefine the \footnote command to store footnotes
+\renewcommand{\footnote}[1]{%
+  \stepcounter{customfootnote}%
+  \global\setbox\footnotebox=\vbox{%
+    \unvbox\footnotebox%
+    \hbox{\tiny{\arabic{customfootnote}: #1}}%
+  }%
+  \hbox{\textsuperscript{\arabic{customfootnote}}}%
+}
+% Command to insert the custom footnote mark
+%\newcommand{\insertcustomfootnotemark}{%
+%  \hbox{\textsuperscript{\arabic{customfootnote}}}%
+%}
+
+% Settings
+\useinnertheme{tuftsnova}
+\useoutertheme{tuftsnova}
+\usecolortheme{tuftsnova}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{blocks}[rounded][shadow=true] \setbeamertemplate{caption}[numbered]
+\setbeamertemplate{section in toc}[sections numbered]
+
+\mode<all>
